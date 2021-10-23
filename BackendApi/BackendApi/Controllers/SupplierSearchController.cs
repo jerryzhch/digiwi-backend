@@ -30,7 +30,7 @@ namespace BackendApi.Controllers
             return keywords.Keys.ToList<string>();
         }
 
-        [HttpGet("byKeyWord")]
+        [HttpGet("byKeyWords")]
         public List<Solution> GetByKeyWord(string keyWords)
         {
             var foundSolutions = new Dictionary<Solution, int>();
