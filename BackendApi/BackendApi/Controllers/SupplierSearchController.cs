@@ -25,7 +25,7 @@ namespace BackendApi.Controllers
         }
 
         [HttpGet("byKeyWord")]
-        public List<Solution> GetByKeyWord([FromBody] string[] keyWords)
+        public List<Solution> GetByKeyWord(string[] keyWords)
         {
             var foundSolutions = new Dictionary<Solution, int>();
             foreach (var keyword in keyWords)
@@ -59,7 +59,7 @@ namespace BackendApi.Controllers
         }
 
         [HttpGet("keyWordFromFreeText")]
-        public List<KeywordMatch> GetKeyWordFromFreeText([FromBody] string freeText)
+        public List<KeywordMatch> GetKeyWordFromFreeText(string freeText)
         {
             char[] splitters = new char[] { ' ', ',', '.' };
 
