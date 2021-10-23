@@ -107,7 +107,7 @@ namespace BackendApi.Controllers
                 {
                     foreach (var keyWordRaiting in solution.Keywords)
                     {
-                        if (keyWordRaiting[0].Contains(keyword))
+                        if (keyWordRaiting[0] == keyword)
                         {
                             int rating = int.Parse(keyWordRaiting[1]);
                             if (!foundSolutions.ContainsKey(solution)) foundSolutions[solution] = rating;
