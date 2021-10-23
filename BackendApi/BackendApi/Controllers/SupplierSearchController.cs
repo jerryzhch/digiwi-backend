@@ -31,7 +31,7 @@ namespace BackendApi.Controllers
         }
 
         [HttpGet("keyWordFromFreeText")]
-        public KeywordMatch[] GetKeyWordFromFreeText([FromBody] string freeText)
+        public List<KeywordMatch> GetKeyWordFromFreeText([FromBody] string freeText)
         {
             char[] splitters = new char[] { ' ', ',', '.' };
 
@@ -57,7 +57,7 @@ namespace BackendApi.Controllers
                 sortedKeywordMatches.Insert(index, match);
             }
 
-            return sortedKeywordMatches.ToArray();
+            return sortedKeywordMatches;
         }
 
 
