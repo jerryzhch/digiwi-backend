@@ -12,7 +12,6 @@ namespace BackendApi.Controllers
     [ApiController]
     public class SupplierSearchController : ControllerBase
     {
-        Supplier[] supplier = MockData.GetSuppliers();
         List<Solution> supplier = MockData.GetSuppliers();
 
         [HttpGet("byKeyWord")]
