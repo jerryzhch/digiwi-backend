@@ -105,21 +105,21 @@ namespace BackendApi
             Keywords.Add("organisation", "Our tool helps you organise your tasks.");
 
             //HighRadius
-            Keywords.Add("billing", "Tools that manage invoices and exhortations.");
-            Keywords.Add("invoice", "Tools that manage invoices and exhortations.");
-            Keywords.Add("exhortation", "Tools that manage invoices and exhortations.");
+            Keywords.Add("billing", "We can help you to manage invoices and exhortations.");
+            Keywords.Add("invoice", "We can help you to manage invoices and exhortations.");
+            Keywords.Add("exhortation", "We can help you to manage invoices and exhortations.");
 
             //Parallel
-            Keywords.Add("logistics", "Tools to help manage your stock.");
-            Keywords.Add("stock", "Tools to help manage your stock.");
-            Keywords.Add("supply", "Tools to help you manage you supply chains.");
+            Keywords.Add("logistics", "We provide tools to help manage your stock.");
+            Keywords.Add("stock", "We provide tool help manage your stock.");
+            Keywords.Add("supply", "We can help you to manage you supply chains.");
 
             //Soxess
-            Keywords.Add("database", "Partners to build custom database solutions.");
+            Keywords.Add("database", "Find partners to build your custom database solutions.");
 
             //WebSamurai
-            Keywords.Add("website", "Tools and partners to build websites and improve web presence.");
-            Keywords.Add("marketing", "Tools and partners to help you with web presence and marketing");
+            Keywords.Add("website", "Find tools and partners to build websites and improve web presence.");
+            Keywords.Add("marketing", "Find tools and partners to help you with web presence and marketing");
 
             //Misc
             //Keywords.Add("planning", "Try enter LOGISTICS if you are looking to organize your stock or TIME if you are looking to improve organisation");
