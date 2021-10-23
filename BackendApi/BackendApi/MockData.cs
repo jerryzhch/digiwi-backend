@@ -8,10 +8,18 @@ namespace BackendApi
 {
     public static class MockData
     {
-        public static Supplier[] GetSuppliers()
+        public static List<Solution> GetSuppliers()
         {
-            Supplier[] suppliers = { };
+            List<Solution> suppliers = new List<Solution>();
+            suppliers.Add(new Solution
+            {
+                Name = "TEst",
+                Address = "Holtzweg 69",
+                Rating = 5,
+                Keywords = new string[] { "communication" },
+                ImageUrl = "www.thisisjustastest.gg"
 
+            });
             return suppliers;
         }
     }

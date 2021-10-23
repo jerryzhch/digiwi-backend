@@ -13,17 +13,20 @@ namespace BackendApi.Controllers
     public class SupplierSearchController : ControllerBase
     {
         Supplier[] supplier = MockData.GetSuppliers();
+        List<Solution> supplier = MockData.GetSuppliers();
 
-        [HttpGet("byTag")]
-        public Supplier[] GetByTag([FromBody] string[] tags)
+        [HttpGet("byKeyWord")]
+        public List<Solution> GetByKeyWord([FromBody] string[] keyWords)
         {
             return supplier;
         }
 
         [HttpGet("byFreeText")]
-        public Supplier[] GetByFreeText([FromBody] string freeText)
+        public List<Solution> GetByFreeText([FromBody] string freeText)
         {
             return supplier;
         }
+
+
     }
 }
