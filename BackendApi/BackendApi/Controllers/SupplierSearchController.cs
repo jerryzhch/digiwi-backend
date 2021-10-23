@@ -41,6 +41,27 @@ namespace BackendApi.Controllers
             return keywords[keyWord];
         }
 
+        [HttpGet("pollResult")]
+        public List<KeywordMatch> GetPollResult(int pollId)
+        {
+            Random rnd = new Random(pollId);
+            var keywordList = keywords.Keys.ToList();
+            var pollresult = "";
+            int count = rnd.Next(500) + 10;
+            while(keywordList.Count > 0)
+            {
+                int index = rnd.Next(keywordList.Count);
+                int score = rnd.Next(count);
+                count = (count - score) / 2;
+                for (int j = 0; j < score; j++)
+                {
+                    pollresult += keywordList[index] + " ";
+                }
+                keywordList.RemoveAt(index);
+            }
+            return GetKeyWordFromFreeText(pollresult);
+        }
+
         [HttpGet("byKeyWords")]
         public List<Solution> GetByKeyWord(string keyWords)
         {

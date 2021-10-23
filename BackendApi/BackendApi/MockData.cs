@@ -122,7 +122,7 @@ namespace BackendApi
             Keywords.Add("marketing", "Tools and partners to help you with web presence and marketing");
 
             //Misc
-            Keywords.Add("planning", "Try enter LOGISTICS if you are looking to organize your stock or TIME if you are looking to improve organisation");
+            //Keywords.Add("planning", "Try enter LOGISTICS if you are looking to organize your stock or TIME if you are looking to improve organisation");
 
             return Keywords;
         }
