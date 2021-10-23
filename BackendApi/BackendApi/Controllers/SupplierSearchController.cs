@@ -25,14 +25,17 @@ namespace BackendApi.Controllers
         }
 
         [HttpGet("byKeyWord")]
-        public List<Solution> GetByKeyWord(string[] keyWords)
+        public List<Solution> GetByKeyWord(string keyWords)
         {
             var foundSolutions = new Dictionary<Solution, int>();
             var sortedSolutionMatches = new List<Solution>();
 
             if (keyWords == null) return sortedSolutionMatches;
 
-            foreach (var keyword in keyWords)
+            char[] splitters = new char[] { ';' };
+            var keys = keyWords.Split(splitters);
+
+            foreach (var keyword in keys)
             {
                 foreach (var solution in supplier)
                 {
