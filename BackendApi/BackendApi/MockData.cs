@@ -55,7 +55,7 @@ namespace BackendApi
                 Address = "Inseliquai 8, 6005 Luzern",
                 Rating = 4,
                 Url = "https://www.parallel.ch/",
-                Keywords = new List<List<string>> { new List<string> { "logistics", "5" }, new List<string> { "planning", "4" },
+                Keywords = new List<List<string>> { new List<string> { "logistics", "5" }, new List<string> { "supply", "4" },
                     new List<string>{"stock", "4" }},
                 ImageUrl = "https://www.parallel.ch/_local/images/logo.png",
                 IsTool = false
