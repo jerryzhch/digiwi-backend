@@ -102,11 +102,12 @@ namespace BackendApi.Controllers
 
             foreach (var keyword in keys)
             {
+                if (keyword == string.Empty) continue;
                 foreach (var solution in supplier)
                 {
                     foreach (var keyWordRaiting in solution.Keywords)
                     {
-                        if (keyWordRaiting[0].Contains(keyword))
+                        if (keyWordRaiting[0] == keyword)
                         {
                             int rating = int.Parse(keyWordRaiting[1]);
                             if (!foundSolutions.ContainsKey(solution)) foundSolutions[solution] = rating;
@@ -150,6 +151,7 @@ namespace BackendApi.Controllers
 
             foreach (var word in words)
             {
+                if (word == string.Empty) continue;
                 string description;
                 if (keywords.TryGetValue(word, out description))
                 {
