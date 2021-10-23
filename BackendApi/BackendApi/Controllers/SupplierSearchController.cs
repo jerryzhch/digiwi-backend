@@ -102,6 +102,7 @@ namespace BackendApi.Controllers
 
             foreach (var keyword in keys)
             {
+                if (keyword == string.Empty) continue;
                 foreach (var solution in supplier)
                 {
                     foreach (var keyWordRaiting in solution.Keywords)
@@ -150,6 +151,7 @@ namespace BackendApi.Controllers
 
             foreach (var word in words)
             {
+                if (word == string.Empty) continue;
                 string description;
                 if (keywords.TryGetValue(word, out description))
                 {
