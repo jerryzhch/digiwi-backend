@@ -33,6 +33,8 @@ namespace BackendApi.Controllers
         [HttpGet("byKeyWords")]
         public List<Solution> GetByKeyWord(string keyWords)
         {
+            keyWords = keyWords.ToLower();
+
             var foundSolutions = new Dictionary<Solution, int>();
             var sortedSolutionMatches = new List<Solution>();
 
@@ -80,6 +82,8 @@ namespace BackendApi.Controllers
         {
             
             char[] splitters = new char[] { ' ', ',', '.' };
+
+            freeText = freeText.ToLower();
 
             var sortedKeywordMatches = new List<Models.KeywordMatch>();
             var foundKeywords = new Dictionary<string, int>();
