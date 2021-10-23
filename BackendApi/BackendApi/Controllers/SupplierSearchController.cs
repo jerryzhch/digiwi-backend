@@ -75,7 +75,7 @@ namespace BackendApi.Controllers
             return sortedSolutionMatches;
         }
 
-        [HttpGet("keyWordFromFreeText")]
+        [HttpGet("keyWordsFromFreeText")]
         public List<KeywordMatch> GetKeyWordFromFreeText(string freeText)
         {
             
