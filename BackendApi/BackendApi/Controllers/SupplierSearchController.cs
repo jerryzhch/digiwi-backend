@@ -27,7 +27,35 @@ namespace BackendApi.Controllers
         [HttpGet("byKeyWord")]
         public List<Solution> GetByKeyWord([FromBody] string[] keyWords)
         {
-            return supplier;
+            var foundSolutions = new Dictionary<Solution, int>();
+            foreach (var keyword in keyWords)
+            {
+                foreach (var solution in supplier)
+                {
+                    if (solution.Keywords.Contains(keyword))
+                    {
+                        if (!foundSolutions.ContainsKey(solution)) foundSolutions[solution] = 1;
+                        else foundSolutions[solution] = foundSolutions[solution] + 1;
+                    }
+                }
+            }
+            var sortedSolutionMatches = new List<Solution>();
+            var sortedSolutionCounts = new List<int>();
+            foreach (var solution in foundSolutions.Keys)
+            {
+                int index = sortedSolutionMatches.Count;
+                for (int i = 0; i < sortedSolutionMatches.Count; i++)
+                {
+                    if (foundSolutions[solution] > sortedSolutionCounts[i])
+                    {
+                        index = i;
+                        break;
+                    }
+                }
+                sortedSolutionMatches.Insert(index, solution);
+                sortedSolutionCounts.Insert(index, foundSolutions[solution]);
+            }
+            return sortedSolutionMatches;
         }
 
         [HttpGet("keyWordFromFreeText")]
