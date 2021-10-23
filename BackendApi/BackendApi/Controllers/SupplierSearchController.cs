@@ -45,11 +45,15 @@ namespace BackendApi.Controllers
             {
                 foreach (var solution in supplier)
                 {
-                    if (solution.Keywords.Contains(keyword))
+                    foreach (var keyWordRaiting in solution.Keywords)
                     {
-                        if (!foundSolutions.ContainsKey(solution)) foundSolutions[solution] = 1;
-                        else foundSolutions[solution] = foundSolutions[solution] + 1;
+                        if (keyWordRaiting.Contains(keyword))
+                        {
+                            if (!foundSolutions.ContainsKey(solution)) foundSolutions[solution] = 1;
+                            else foundSolutions[solution] = foundSolutions[solution] + 1;
+                        }
                     }
+                    
                 }
             }
             
