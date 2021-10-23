@@ -25,20 +25,30 @@ namespace BackendApi.Controllers
         }
 
         [HttpGet("keyWords")]
-        public List<string> GetKeyWords()
+        public List<KeywordMatch> GetKeyWords()
         {
-            return keywords.Keys.ToList<string>();
+            var keywordList = new List<Models.KeywordMatch>();
+            foreach(var key in keywords.Keys)
+            {
+                keywordList.Add(new KeywordMatch() { Keyword = key, Description = keywords[key] });
+            }
+            return keywordList;
+        }
+
+        [HttpGet("keyWordDescription")]
+        public string GetKeyWords(string keyWord)
+        {
+            return keywords[keyWord];
         }
 
         [HttpGet("byKeyWords")]
         public List<Solution> GetByKeyWord(string keyWords)
         {
-            keyWords = keyWords.ToLower();
-
             var foundSolutions = new Dictionary<Solution, int>();
             var sortedSolutionMatches = new List<Solution>();
 
             if (keyWords == null) return sortedSolutionMatches;
+            keyWords = keyWords.ToLower();
 
             char[] splitters = new char[] { ';' };
             var keys = keyWords.Split(splitters);
@@ -80,15 +90,13 @@ namespace BackendApi.Controllers
         [HttpGet("keyWordsFromFreeText")]
         public List<KeywordMatch> GetKeyWordFromFreeText(string freeText)
         {
-            
             char[] splitters = new char[] { ' ', ',', '.' };
-
-            freeText = freeText.ToLower();
 
             var sortedKeywordMatches = new List<Models.KeywordMatch>();
             var foundKeywords = new Dictionary<string, int>();
 
             if (freeText == null) return sortedKeywordMatches;
+            freeText = freeText.ToLower();
 
             var words = freeText.Split(splitters);
 

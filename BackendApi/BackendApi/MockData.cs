@@ -91,18 +91,18 @@ namespace BackendApi
             Dictionary<string, string> Keywords = new Dictionary<string, string>();
 
             //Bexio
-            Keywords.Add("accounting", "Tools to improve any financial task.");
-            Keywords.Add("trustee", "A person to administer your/customer property.");
-            Keywords.Add("customer", "Tools to help you manage your customers.");
-            Keywords.Add("order", "Tools to help you manage your orders.");
+            Keywords.Add("accounting", "We can help you with financial tasks.");
+            Keywords.Add("trustee", "We connect you with someone to administer your or your customers property.");
+            Keywords.Add("customer", "We provide tools to manage your customer base.");
+            Keywords.Add("order", "We help you to manage your orders.");
 
             //Slack
-            Keywords.Add("communication", "Tools to imrove internal communication.");
-            Keywords.Add("teamwork", "Tools to improve collaboration of employees.");
+            Keywords.Add("communication", "We provide a tool to improve internal and external communication.");
+            Keywords.Add("teamwork", "Our tool can help you team to collaborate better and be more productive.");
 
             //ClickTime
-            Keywords.Add("time", "Tools to record working hours and task scheduling.");
-            Keywords.Add("organisation", "Tools to help with organisation and time management.");
+            Keywords.Add("time", "We provide tools to track time and plan ahaed.");
+            Keywords.Add("organisation", "Our tool helps you organise your tasks.");
 
             //HighRadius
             Keywords.Add("billing", "Tools that manage invoices and exhortations.");
