@@ -24,6 +24,12 @@ namespace BackendApi.Controllers
             return sortedMatches.Count;
         }
 
+        [HttpGet("keyWords")]
+        public List<string> GetKeyWords()
+        {
+            return keywords.Keys.ToList<string>();
+        }
+
         [HttpGet("byKeyWord")]
         public List<Solution> GetByKeyWord(string keyWords)
         {
