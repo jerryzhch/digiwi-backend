@@ -14,6 +14,7 @@ namespace BackendApi.Controllers
     {
         List<Solution> supplier = MockData.GetSuppliers();
         Dictionary<string, string> keywords = MockData.GetKeywords();
+        static Dictionary<int, string> polls = new Dictionary<int, string>();
 
         private int GetInsertIndex(Models.KeywordMatch match, List<Models.KeywordMatch> sortedMatches)
         {
@@ -44,22 +45,47 @@ namespace BackendApi.Controllers
         [HttpGet("pollResult")]
         public List<KeywordMatch> GetPollResult(int pollId)
         {
-            Random rnd = new Random(pollId);
-            var keywordList = keywords.Keys.ToList();
             var pollresult = "";
-            int count = rnd.Next(500) + 10;
-            while(keywordList.Count > 0)
+
+            if (pollId > 10)
             {
-                int index = rnd.Next(keywordList.Count);
-                int score = rnd.Next(count);
-                count = (count - score) / 2;
-                for (int j = 0; j < score; j++)
+                Random rnd = new Random(pollId);
+                var keywordList = keywords.Keys.ToList();
+                int count = rnd.Next(500) + 10;
+                while (keywordList.Count > 0)
                 {
-                    pollresult += keywordList[index] + " ";
+                    int index = rnd.Next(keywordList.Count);
+                    int score = rnd.Next(count);
+                    count = (count - score) / 2;
+                    for (int j = 0; j < score; j++)
+                    {
+                        pollresult += keywordList[index] + " ";
+                    }
+                    keywordList.RemoveAt(index);
                 }
-                keywordList.RemoveAt(index);
             }
+
+            if(polls.ContainsKey(pollId))
+            {
+                pollresult += " " + polls[pollId];
+            }
+
             return GetKeyWordFromFreeText(pollresult);
+        }
+
+        [HttpGet("updatePoll")]
+        public List<KeywordMatch> UpdatePoll(int pollId, string update)
+        {
+            if(polls.ContainsKey(pollId))
+            {
+                polls[pollId] = polls[pollId] + " " + update;
+            }
+            else
+            {
+                polls.Add(pollId, update);
+            }
+
+            return GetPollResult(pollId);
         }
 
         [HttpGet("byKeyWords")]
