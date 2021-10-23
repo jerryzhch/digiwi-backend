@@ -66,5 +66,41 @@ namespace BackendApi
 
             return keywords;
         }
+
+        public Models.KeywordMatch[] GetSortedKeywordMatches(string text)
+        {
+            var sortedKeywordMatches = new List<Models.KeywordMatch>();
+            var keywords = new Dictionary<string, int>();
+
+            var words = text.Split(splitters);
+
+            foreach (var word in words)
+            {
+                string description;
+                if (Keywords.TryGetValue(word, out description))
+                {
+                    if (!keywords.ContainsKey(word)) keywords[word] = 1;
+                    else keywords[word] = keywords[word] + 1;
+                }
+            }
+
+            foreach(var keyword in keywords.Keys)
+            {
+                var match = new Models.KeywordMatch() { Keyword = keyword, Count = keywords[keyword], Description = Keywords[keyword] };
+                var index = GetInsertIndex(match, sortedKeywordMatches);
+                sortedKeywordMatches.Insert(index, match);
+            }
+
+            return sortedKeywordMatches.ToArray();
+        }
+
+        private int GetInsertIndex(Models.KeywordMatch match, List<Models.KeywordMatch> sortedMatches)
+        {
+            for(int i = 0; i < sortedMatches.Count; i++)
+            {
+                if (match.Count > sortedMatches[i].Count) return i;
+            }
+            return sortedMatches.Count;
+        }
     }
 }

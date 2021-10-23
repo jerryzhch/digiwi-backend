@@ -8,7 +8,7 @@ namespace BackendApi.Models
     public class KeywordMatch
     {
         public string Keyword { get; set; }
-        public int Occurances { get; set; }
+        public int Count { get; set; }
         public string Description { get; set; }
     }
 }
