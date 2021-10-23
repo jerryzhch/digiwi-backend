@@ -106,10 +106,11 @@ namespace BackendApi.Controllers
                 {
                     foreach (var keyWordRaiting in solution.Keywords)
                     {
-                        if (keyWordRaiting.Contains(keyword))
+                        if (keyWordRaiting[0].Contains(keyword))
                         {
-                            if (!foundSolutions.ContainsKey(solution)) foundSolutions[solution] = 1;
-                            else foundSolutions[solution] = foundSolutions[solution] + 1;
+                            int rating = int.Parse(keyWordRaiting[1]);
+                            if (!foundSolutions.ContainsKey(solution)) foundSolutions[solution] = rating;
+                            else foundSolutions[solution] = foundSolutions[solution] + rating;
                         }
                     }
                     
@@ -167,6 +168,21 @@ namespace BackendApi.Controllers
             return sortedKeywordMatches;
         }
 
-
+        [HttpPut("putProvider")]
+        public void putSolutionProvider(string name, string url, string address, string imageUrl, string keyWords, bool isTool)
+        {
+            char[] splitters = new char[] { ';' };
+            var splitted = keyWords.Split(splitters);
+            List<List<string>> ratedKeyWords = new List<List<string>>();
+            for (int i = 0; i < splitted.Length - 1; i+=2)
+            {
+                var ratedKeyword = new List<string>();
+                ratedKeyword.Add(splitted[i]);
+                ratedKeyword.Add(splitted[i + 1]);
+                ratedKeyWords.Add(ratedKeyword);
+            }
+            Solution s = new Solution() { Name = name, Url = url, Address = address, ImageUrl = imageUrl, Keywords = ratedKeyWords, IsTool = isTool, Rating = 3};
+            supplier.Add(s);
+        }
     }
 }

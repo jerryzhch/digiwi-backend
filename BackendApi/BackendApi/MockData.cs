@@ -91,35 +91,35 @@ namespace BackendApi
             Dictionary<string, string> Keywords = new Dictionary<string, string>();
 
             //Bexio
-            Keywords.Add("accounting", "We can help you with financial tasks.");
-            Keywords.Add("trustee", "We connect you with someone to administer your or your customers property.");
-            Keywords.Add("customer", "We provide tools to manage your customer base.");
-            Keywords.Add("order", "We help you to manage your orders.");
+            Keywords.Add("accounting", "I can help you with financial tasks.");
+            Keywords.Add("trustee", "Let me connect you with someone to administer your or your customers property.");
+            Keywords.Add("customer", "I can find tools to improve you customer interaction and management");
+            Keywords.Add("order", "If you want help with orders and accounting I can find just the right fit for you.");
 
             //Slack
-            Keywords.Add("communication", "We provide a tool to improve internal and external communication.");
-            Keywords.Add("teamwork", "Our tool can help you team to collaborate better and be more productive.");
+            Keywords.Add("communication", "I can suggest a tool to improve internal and external communication.");
+            Keywords.Add("teamwork", "There exist tools thet can help your team to collaborate better and be more productive.");
 
             //ClickTime
-            Keywords.Add("time", "We provide tools to track time and plan ahaed.");
-            Keywords.Add("organisation", "Our tool helps you organise your tasks.");
+            Keywords.Add("time", "Time tracking can be autmated, making it less of a hassle for your emploees.");
+            Keywords.Add("organisation", "Organisation is alsways difficult but there exist tools that can help you with that.");
 
             //HighRadius
-            Keywords.Add("billing", "We can help you to manage invoices and exhortations.");
-            Keywords.Add("invoice", "We can help you to manage invoices and exhortations.");
-            Keywords.Add("exhortation", "We can help you to manage invoices and exhortations.");
+            Keywords.Add("billing", "Billing is a must and with the right tool it is also very easy.");
+            Keywords.Add("invoice", "I can help you with your invoces.");
+            Keywords.Add("exhortation", "Exhortations are a hassle for all parties, but with the right tool you can save a lot of money.");
 
             //Parallel
-            Keywords.Add("logistics", "We provide tools to help manage your stock.");
-            Keywords.Add("stock", "We provide tool help manage your stock.");
-            Keywords.Add("supply", "We can help you to manage you supply chains.");
+            Keywords.Add("logistics", "Need help with your stock and logistics? I might know just the right partner.");
+            Keywords.Add("stock", "Never run out of stuck with the right tools and partners.");
+            Keywords.Add("supply", "There are tools that make supplychain management a breeze.");
 
             //Soxess
-            Keywords.Add("database", "Find partners to build your custom database solutions.");
+            Keywords.Add("database", "You need a databas? Let me help you with that.");
 
             //WebSamurai
-            Keywords.Add("website", "Find tools and partners to build websites and improve web presence.");
-            Keywords.Add("marketing", "Find tools and partners to help you with web presence and marketing");
+            Keywords.Add("website", "Need a partner to improve your appearance in the world wide web?");
+            Keywords.Add("marketing", "I can find a partner for your marketing needs.");
 
             //Misc
             //Keywords.Add("planning", "Try enter LOGISTICS if you are looking to organize your stock or TIME if you are looking to improve organisation");
