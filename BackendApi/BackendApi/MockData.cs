@@ -56,7 +56,7 @@ namespace BackendApi
                 Rating = 4,
                 Url = "https://www.parallel.ch/",
                 Keywords = new List<List<string>> { new List<string> { "logistics", "5" }, new List<string> { "planning", "4" },
-                    new List<string>{"Stock", "4" }},
+                    new List<string>{"stock", "4" }},
                 ImageUrl = "https://www.parallel.ch/_local/images/logo.png",
                 IsTool = false
 
