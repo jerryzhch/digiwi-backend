@@ -28,6 +28,10 @@ namespace BackendApi.Controllers
         public List<Solution> GetByKeyWord(string[] keyWords)
         {
             var foundSolutions = new Dictionary<Solution, int>();
+            var sortedSolutionMatches = new List<Solution>();
+
+            if (keyWords == null) return sortedSolutionMatches;
+
             foreach (var keyword in keyWords)
             {
                 foreach (var solution in supplier)
@@ -39,7 +43,7 @@ namespace BackendApi.Controllers
                     }
                 }
             }
-            var sortedSolutionMatches = new List<Solution>();
+            
             var sortedSolutionCounts = new List<int>();
             foreach (var solution in foundSolutions.Keys)
             {
@@ -61,10 +65,13 @@ namespace BackendApi.Controllers
         [HttpGet("keyWordFromFreeText")]
         public List<KeywordMatch> GetKeyWordFromFreeText(string freeText)
         {
+            
             char[] splitters = new char[] { ' ', ',', '.' };
 
             var sortedKeywordMatches = new List<Models.KeywordMatch>();
             var foundKeywords = new Dictionary<string, int>();
+
+            if (freeText == null) return sortedKeywordMatches;
 
             var words = freeText.Split(splitters);
 
