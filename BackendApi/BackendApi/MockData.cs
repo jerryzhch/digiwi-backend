@@ -16,7 +16,7 @@ namespace BackendApi
                 Name = "TEst",
                 Address = "Holtzweg 69",
                 Rating = 5,
-                Keywords = new string[] { "communication" },
+                Keywords = new List<string> { "communication" },
                 ImageUrl = "www.thisisjustastest.gg"
 
             });

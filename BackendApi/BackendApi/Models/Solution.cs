@@ -10,7 +10,7 @@ namespace BackendApi.Models
         public string Name { get; set; }
         public string? Address { get; set; }
         public int Rating { get; set; }
-        public string[] Keywords { get; set; }
+        public List<string> Keywords { get; set; }
         public string ImageUrl { get; set; }
         public bool IsTool { get; set; }
     }
