@@ -12,7 +12,17 @@ namespace BackendApi
         {
             List<Solution> suppliers = new List<Solution>();
             suppliers.AddRange(new List<Solution> {
-                new Solution
+            new Solution
+            {
+                Name = "TechnoPark Winti",
+                Address = "Technoparkstrasse 2, 8406 Winterthur",
+                Rating = 5,
+                Url = "https://tpw.ch/",
+                Keywords = new List<List<string>> { new List<string> { "teamwork", "5"}, new List<string>{"organisation", "4" } },
+                ImageUrl = "https://tpw.ch/wp-content/uploads/2021/02/TPW-Linkedin-quer-Kamp-Vermietung-202001-01-1536x768-oT-1160x675.jpg",
+                IsTool = false
+
+            }, new Solution
             {
                 Name = "Bexio",
                 Address = "Alte Jonastrasse 24, 8640 Rapperswil-Jona",
@@ -95,7 +105,7 @@ namespace BackendApi
             //{
             //    noser.Keywords.Add(new List<string> { keyword, "5" });
             //}
-            suppliers.Add(noser);
+            suppliers.Insert(0, noser);
 
             return suppliers;
         }
