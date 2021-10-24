@@ -91,10 +91,10 @@ namespace BackendApi
             noser.Keywords.Add(new List<string> { "organisation", "5" });
             noser.Keywords.Add(new List<string> { "teamwork", "5" });
             noser.Keywords.Add(new List<string> { "communication", "5" });
-            foreach (var keyword in GetKeywords().Keys)
-            {
-                noser.Keywords.Add(new List<string> { keyword, "5" });
-            }
+            //foreach (var keyword in GetKeywords().Keys)
+            //{
+            //    noser.Keywords.Add(new List<string> { keyword, "5" });
+            //}
             suppliers.Add(noser);
 
             return suppliers;
