@@ -51,12 +51,12 @@ namespace BackendApi.Controllers
             {
                 Random rnd = new Random(pollId);
                 var keywordList = keywords.Keys.ToList();
-                int count = rnd.Next(500) + 10;
+                int count = rnd.Next(100) + 10;
                 while (keywordList.Count > 0)
                 {
                     int index = rnd.Next(keywordList.Count);
                     int score = rnd.Next(count);
-                    count = (count - score) / 2;
+                    count = count - count / 3 - score / 2;
                     for (int j = 0; j < score; j++)
                     {
                         pollresult += keywordList[index] + " ";
