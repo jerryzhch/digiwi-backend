@@ -83,6 +83,20 @@ namespace BackendApi
             }
 
             });
+
+            
+            var noser = new Solution { Name = "Noser", Address = "Rudolf-Diesel-Strasse 3, 8404 Winterthur" , Rating = 8, Url = "https://www.noser.com/", Keywords = new List<List<string>>(), ImageUrl = "https://www.noser.com/wp-content/uploads/2021/03/NoserEng_Logo_RGB.jpg", IsTool = false };
+            noser.Keywords.Add(new List<string> { "database", "5" });
+            noser.Keywords.Add(new List<string> { "website", "5" });
+            noser.Keywords.Add(new List<string> { "organisation", "5" });
+            noser.Keywords.Add(new List<string> { "teamwork", "5" });
+            noser.Keywords.Add(new List<string> { "communication", "5" });
+            foreach (var keyword in GetKeywords().Keys)
+            {
+                noser.Keywords.Add(new List<string> { keyword, "5" });
+            }
+            suppliers.Add(noser);
+
             return suppliers;
         }
 
