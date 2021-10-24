@@ -107,7 +107,7 @@ namespace BackendApi.Controllers
                 {
                     foreach (var keyWordRaiting in solution.Keywords)
                     {
-                        if (keyWordRaiting[0] == keyword)
+                        if ((keyWordRaiting[0] == keyword) || ((keyWordRaiting[0] + "s") == keyword))
                         {
                             int rating = int.Parse(keyWordRaiting[1]);
                             if (!foundSolutions.ContainsKey(solution)) foundSolutions[solution] = rating;
@@ -139,6 +139,7 @@ namespace BackendApi.Controllers
         [HttpGet("keyWordsFromFreeText")]
         public List<KeywordMatch> GetKeyWordFromFreeText(string freeText)
         {
+            System.Diagnostics.Debug.WriteLine(freeText);
             char[] splitters = new char[] { ' ', ',', '.' };
 
             var sortedKeywordMatches = new List<Models.KeywordMatch>();
@@ -151,12 +152,24 @@ namespace BackendApi.Controllers
 
             foreach (var word in words)
             {
+                System.Diagnostics.Debug.WriteLine($"checking {word}");
                 if (word == string.Empty) continue;
                 string description;
                 if (keywords.TryGetValue(word, out description))
                 {
                     if (!foundKeywords.ContainsKey(word)) foundKeywords[word] = 1;
                     else foundKeywords[word] = foundKeywords[word] + 1;
+                    System.Diagnostics.Debug.WriteLine($"{word} found ({foundKeywords[word]})");
+                }
+                else if (word.ElementAt(word.Length - 1) == 's')
+                {
+                    string singular = word.Substring(0, word.Length - 1);
+                    if (keywords.TryGetValue(singular, out description))
+                    {
+                        if (!foundKeywords.ContainsKey(singular)) foundKeywords[singular] = 1;
+                        else foundKeywords[singular] = foundKeywords[singular] + 1;
+                        System.Diagnostics.Debug.WriteLine($"{singular} found ({foundKeywords[singular]})");
+                    }
                 }
             }
 
